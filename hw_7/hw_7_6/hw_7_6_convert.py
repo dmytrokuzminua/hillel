@@ -3,7 +3,7 @@
 
 import csv
 import json
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as EtreeEl
 
 
 class CSVtoJSONConverter:
@@ -36,7 +36,7 @@ class XMLtoJSONConverter:
     @staticmethod
     def xml_to_json(xml_file, json_file):
         """Converts a xml file to json"""
-        tree = ET.parse(xml_file)
+        tree = EtreeEl.parse(xml_file)
         root = tree.getroot()
         data = []
         for elem in root:
