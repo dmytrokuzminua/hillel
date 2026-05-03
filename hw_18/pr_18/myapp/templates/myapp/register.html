@@ -1,0 +1,17 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div style="max-width: 500px; margin: 0 auto;">
+    <h2>Реєстрація</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Створити акаунт</button>
+    </form>
+    <div style="text-align: center; margin-top: 15px;">
+        <small>Вже маєте акаунт? <a href="{% url 'login' %}">Увійти</a></small>
+    </div>
+</div>
+{% endblock %}

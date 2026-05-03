@@ -1,0 +1,32 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 0 auto;">
+    <h2 style="text-align: center;">Профіль користувача: {{ profile_user.username }}</h2>
+    <hr>
+    
+    <div style="display: flex; gap: 20px; align-items: start; margin-top: 20px;">
+        <!-- Аватар -->
+        <div style="flex-shrink: 0;">
+            {% if profile_user.profile.avatar %}
+                <img src="{{ profile_user.profile.avatar.url }}" alt="Avatar" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 2px solid #ddd;">
+            {% else %}
+                <div style="width: 150px; height: 150px; border-radius: 50%; background: #eee; display: flex; align-items: center; justify-content: center; color: #999; border: 2px solid #ddd;">
+                    Немає фото
+                </div>
+            {% endif %}
+        </div>
+
+        <div style="flex-grow: 1;">
+            <p><strong>Email:</strong> {{ profile_user.email }}</p>
+            <p><strong>Біографія:</strong> {{ profile_user.profile.bio|default:"Не вказано" }}</p>
+            <p><strong>Місто:</strong> {{ profile_user.profile.location|default:"Не вказано" }}</p>
+            <p><strong>Дата народження:</strong> {{ profile_user.profile.birth_date|default:"Не вказано" }}</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px; text-align: center;">
+        <a href="{% url 'edit_profile' %}" style="display: inline-block; background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px;">Редагувати профіль</a>
+    </div>
+</div>
+{% endblock %}
