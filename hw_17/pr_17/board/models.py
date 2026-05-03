@@ -5,7 +5,6 @@ from django.utils import timezone
 from datetime import timedelta
 
 
-# 🔹 Профіль користувача
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(max_length=20)
