@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h2>{{ title|title }}</h2>
+<p>Ми пропонуємо {{ services|length }} послу{{ services|length|pluralize:"гу,ги" }}:</p>
+
+<ul class="list-group">
+    {% for service in services|slice:":3" %}
+    <li class="list-group-item">
+        <strong>{{ service.name }}</strong>: {{ service.description|safe }}
+    </li>
+    {% endfor %}
+</ul>
+
+<p>Останнє оновлення: {{ last_updated|date:"d.m.Y" }}</p>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h2>{{ title|upper }}</h2>
+<ul class="list-group">
+    <li class="list-group-item">Адреса: {{ address|default:"Не вказано" }}</li>
+    <li class="list-group-item">Телефон: {{ phone|default:"Не вказано" }}</li>
+    <li class="list-group-item">Email: {{ email|default:"Не вказано" }}</li>
+</ul>
+{% endblock %}
